@@ -24,13 +24,24 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        .reviews {
+        .reviews-container {
             margin-top: 30px;
             width: 300px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
             height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .reviews {
+            position: absolute;
+            width: 100%;
+            animation: slideUp 15s linear infinite;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        .review {
+            padding: 10px;
         }
     </style>
 </head>
@@ -41,7 +52,9 @@
         <a class="button" href="https://forms.gle/example2" target="_blank">Custom Server</a>
         <a class="button" href="https://forms.gle/example3" target="_blank">Both</a>
         
-        <div class="reviews" id="reviews"></div>
+        <div class="reviews-container">
+            <div class="reviews" id="reviews"></div>
+        </div>
     </div>
 
     <script>
@@ -52,13 +65,18 @@
             "Great customization options!",
             "Awesome support team!",
         ];
-        let index = 0;
-        function updateReview() {
-            document.getElementById("reviews").textContent = reviews[index];
-            index = (index + 1) % reviews.length;
+        
+        function populateReviews() {
+            const reviewContainer = document.getElementById("reviews");
+            reviews.forEach(review => {
+                let div = document.createElement("div");
+                div.className = "review";
+                div.textContent = review;
+                reviewContainer.appendChild(div);
+            });
         }
-        setInterval(updateReview, 3000);
-        updateReview();
+        
+        populateReviews();
     </script>
 </body>
 </html>
