@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #2c2f33;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #7289da;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .reviews {
+            margin-top: 30px;
+            width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Get Your Custom Discord Bot</h1>
+        <a class="button" href="https://forms.gle/example1" target="_blank">Custom Discord Bot</a>
+        <a class="button" href="https://forms.gle/example2" target="_blank">Custom Server</a>
+        <a class="button" href="https://forms.gle/example3" target="_blank">Both</a>
+        
+        <div class="reviews" id="reviews"></div>
+    </div>
+
+    <script>
+        const reviews = [
+            "Amazing service! Highly recommend!",
+            "Best bot I've ever used!",
+            "Super fast and reliable!",
+            "Great customization options!",
+            "Awesome support team!",
+        ];
+        let index = 0;
+        function updateReview() {
+            document.getElementById("reviews").textContent = reviews[index];
+            index = (index + 1) % reviews.length;
+        }
+        setInterval(updateReview, 3000);
+        updateReview();
+    </script>
+</body>
+</html>
