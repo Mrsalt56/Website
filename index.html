@@ -3,80 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Bot Services</title>
+    <title>Discord Bot Service</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
             text-align: center;
-            background-color: #2c2f33;
+            padding: 20px;
+            background-color: #2c3e50;
             color: white;
         }
+
         .container {
+            text-align: center;
             margin-top: 50px;
         }
-        .button {
-            display: block;
-            width: 200px;
-            margin: 10px auto;
-            padding: 10px;
-            background-color: #7289da;
+
+        .btn {
+            background-color: #3498db;
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
             border-radius: 5px;
+            text-decoration: none;
         }
+
         .reviews-container {
-            margin-top: 30px;
-            width: 300px;
-            height: 50px;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             overflow: hidden;
+            height: 300px;
             position: relative;
         }
+
         .reviews {
-            position: absolute;
-            width: 100%;
-            animation: slideUp 15s linear infinite;
+            display: flex;
+            flex-direction: column;
+            animation: scrollUp 10s linear infinite;
         }
-        @keyframes slideUp {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
+
         .review {
-            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: relative;
+            min-width: 200px;
         }
+
+        .review .author {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Get Your Custom Discord Bot</h1>
-        <a class="button" href="https://forms.gle/example1" target="_blank">Custom Discord Bot</a>
-        <a class="button" href="https://forms.gle/example2" target="_blank">Custom Server</a>
-        <a class="button" href="https://forms.gle/example3" target="_blank">Both</a>
-        
-        <div class="reviews-container">
-            <div class="reviews" id="reviews"></div>
+
+<header>
+    <h1>Welcome to the Discord Bot Service</h1>
+    <p>Choose a service below:</p>
+</header>
+
+<div class="container">
+    <a href="YOUR_GOOGLE_FORM_URL_FOR_BOTS" class="btn">Create Discord Bot</a>
+    <a href="YOUR_GOOGLE_FORM_URL_FOR_SERVER" class="btn">Create Custom Server</a>
+    <a href="YOUR_GOOGLE_FORM_URL_FOR_BOTH" class="btn">Create Both (Bot & Server)</a>
+</div>
+
+<div class="reviews-container">
+    <div class="reviews">
+        <div class="review">
+            <p>"This service is fantastic! My bot works perfectly, and the support is great!"</p>
+            <span class="author">- John Doe</span>
+        </div>
+        <div class="review">
+            <p>"I love how easy it was to get my server set up, and the bot is top-notch!"</p>
+            <span class="author">- Jane Smith</span>
+        </div>
+        <div class="review">
+            <p>"A smooth experience from start to finish! Highly recommend it for anyone looking for a Discord bot."</p>
+            <span class="author">- Mark Johnson</span>
+        </div>
+        <div class="review">
+            <p>"Amazing! Both the bot and server are running without a hitch, and I got help whenever needed."</p>
+            <span class="author">- Emily Davis</span>
+        </div>
+        <div class="review">
+            <p>"Fast, professional, and the results are fantastic. Very happy with the bot and server setup!"</p>
+            <span class="author">- Michael Lee</span>
         </div>
     </div>
+</div>
 
-    <script>
-        const reviews = [
-            "Amazing service! Highly recommend!",
-            "Best bot I've ever used!",
-            "Super fast and reliable!",
-            "Great customization options!",
-            "Awesome support team!",
-        ];
-        
-        function populateReviews() {
-            const reviewContainer = document.getElementById("reviews");
-            reviews.forEach(review => {
-                let div = document.createElement("div");
-                div.className = "review";
-                div.textContent = review;
-                reviewContainer.appendChild(div);
-            });
-        }
-        
-        populateReviews();
-    </script>
 </body>
 </html>
